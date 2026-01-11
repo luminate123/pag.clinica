@@ -39,7 +39,7 @@ export default function Promociones() {
         <Header />
         
         <div className="bg-[#D4AF37] py-20 text-center">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 animate-fade-in-up">
                 <span className="text-sm uppercase tracking-widest text-[#1a1a1a]/70 mb-4 block font-bold">Ofertas Limitadas</span>
                 <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">Promociones del Mes</h1>
                 <p className="max-w-2xl mx-auto text-white/90 font-light text-lg">
@@ -51,7 +51,7 @@ export default function Promociones() {
         <div className="container mx-auto px-6 py-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {promos.map((promo, idx) => (
-                    <div key={idx} className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col md:flex-row hover:shadow-2xl transition-all h-full">
+                    <div key={idx} className={`group bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col md:flex-row hover:shadow-2xl transition-all h-full animate-fade-in-up delay-${(idx + 1) * 100}`}>
                         <div className="w-full md:w-2/5 h-64 md:h-auto overflow-hidden relative">
                              <img 
                                 src={promo.image} 
@@ -84,7 +84,7 @@ export default function Promociones() {
                 ))}
             </div>
             
-             <div className="mt-20 text-center bg-white p-12 rounded-2xl border border-slate-100 shadow-sm">
+             <div className="mt-20 text-center bg-white p-12 rounded-2xl border border-slate-100 shadow-sm animate-fade-in-up delay-500">
                 <h3 className="text-2xl font-serif text-slate-900 mb-4">¿No encuentras lo que buscas?</h3>
                 <p className="text-slate-600 font-light mb-8 max-w-lg mx-auto">
                     Suscríbete a nuestro boletín para ser la primera en enterarte de nuevas promociones y descuentos flash.

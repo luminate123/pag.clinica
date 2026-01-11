@@ -8,7 +8,7 @@ export default function Sedes() {
         <Header />
          {/* Page Header */}
          <div className="bg-slate-900 py-20 text-center mb-0">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 animate-fade-in-up">
                 <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-4 block font-bold">Ubícanos</span>
                 <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">Nuestras Sedes</h1>
                 <p className="max-w-2xl mx-auto text-slate-300 font-light text-lg">
@@ -22,7 +22,7 @@ export default function Sedes() {
         <div className="bg-white py-24">
             <div className="container mx-auto px-6">
                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
+                    <div className="animate-fade-in-up">
                         <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6">Instalaciones de Primer Nivel</h2>
                         <p className="text-slate-600 font-light leading-relaxed mb-6 text-lg">
                             Cada una de nuestras sedes cuenta con quirófanos equipados con tecnología de última generación, salas de recuperación privadas y consultorios diseñados para brindarte una experiencia relajante y exclusiva.
@@ -37,7 +37,7 @@ export default function Sedes() {
                             <Feature text="Coffee Station de cortesía" />
                         </ul>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4 animate-fade-in-up delay-200">
                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=600" className="rounded-2xl shadow-lg w-full h-64 object-cover transform translate-y-8" alt="Interior 1" />
                         <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Interior 2" />
                     </div>

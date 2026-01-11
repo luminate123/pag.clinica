@@ -25,7 +25,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       
       {/* Service Header */}
       <div className="bg-slate-900 py-20 text-white">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 animate-fade-in-up">
             <Link 
                 href="/servicios" 
                 className="inline-flex items-center text-xs uppercase tracking-widest text-slate-400 hover:text-[#D4AF37] mb-8 transition-colors"
@@ -44,7 +44,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       <div className="container mx-auto px-6 py-10 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Main Content */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 animate-fade-in-up delay-200">
             <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-100 mb-8 md:mb-10">
                 <h3 className="text-2xl font-serif text-slate-900 mb-6">Descripción del Procedimiento</h3>
                 <div className="prose prose-slate prose-lg max-w-none font-light text-slate-600">
@@ -55,7 +55,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
                 </div>
             </div>
 
-            <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-100">
+            <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-100 animate-fade-in-up delay-300">
                 <h3 className="text-2xl font-serif text-slate-900 mb-8">Beneficios Exclusivos</h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {service.benefits.map((benefit, idx) => (
@@ -69,7 +69,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 animate-fade-in-up delay-400">
             <div className="bg-[#1a1a1a] text-white p-8 rounded-2xl sticky top-28 shadow-xl">
                 <div className="mb-8 pb-8 border-b border-white/10">
                     <h3 className="text-xl font-serif mb-2 text-[#D4AF37]">Detalles Médicos</h3>

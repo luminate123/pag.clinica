@@ -11,7 +11,7 @@ export default function ServicesPage() {
        <div className="pt-20 pb-24">
             {/* Page Header */}
             <div className="bg-slate-900 py-20 text-center mb-16">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-6 animate-fade-in-up">
                     <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-4 block font-bold">Nuestra Oferta Médica</span>
                     <h1 className="text-3xl md:text-4xl lg:text-6xl font-serif text-white mb-6">Procedimientos Exclusivos</h1>
                     <p className="max-w-2xl mx-auto text-slate-300 font-light text-base md:text-lg">
@@ -22,11 +22,11 @@ export default function ServicesPage() {
 
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.map((service) => (
+                {services.map((service, index) => (
                     <Link 
                     key={service.slug} 
                     href={`/servicios/${service.slug}`}
-                    className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100 flex flex-col"
+                    className={`group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100 flex flex-col animate-fade-in-up delay-${(index % 5 + 1) * 100}`}
                     >
                         {/* Image Section */}
                         <div className="h-64 overflow-hidden relative">

@@ -1,6 +1,6 @@
 export default function TrustBar() {
   return (
-    <section className="bg-slate-50 py-12 border-y border-slate-100">
+    <section className="bg-slate-50 py-12 border-y border-slate-100 animate-fade-in-up">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center bg-white p-8 rounded-xl shadow-sm">
             <TrustItem 

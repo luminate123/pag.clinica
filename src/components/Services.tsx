@@ -28,7 +28,7 @@ export default function Services() {
   return (
     <section id="servicios" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <span className="text-sm uppercase tracking-widest text-[#D4AF37] mb-2 block font-bold">Experiencia & Cuidado</span>
           <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-6">Nuestras Especialidades</h2>
           <p className="max-w-2xl mx-auto text-slate-600 font-light text-lg">
@@ -41,7 +41,7 @@ export default function Services() {
             <Link 
                 key={index} 
                 href={cat.link}
-                className="group relative h-96 overflow-hidden cursor-pointer"
+                className={`group relative h-96 overflow-hidden cursor-pointer animate-fade-in-up delay-${(index + 1) * 100}`}
             >
               {/* Image Background */}
               <img 
