@@ -1,0 +1,92 @@
+# Workflow para desplegar un sitio Next.js en GitHub Pages
+name: Deploy to GitHub Pages
+
+on:
+  # Se ejecuta al hacer push a las ramas por defecto
+  push:
+    branches: ["main", "master"]
+
+  # Permite ejecutar el workflow manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Otorga permisos al GITHUB_TOKEN para desplegar en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un despliegue concurrente, saltando las ejecuciones en cola entre las que están en progreso.
+# Sin embargo, NO cancelamos las ejecuciones en progreso ya que queremos que esos despliegues de producción se completen.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Trabajo de construcción
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=yarn" >> $GITHUB_OUTPUT
+            exit 0
+          elif [ -f "${{ github.workspace }}/package.json" ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+            exit 0
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+          
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          # Genera una nueva caché cada vez que cambia packages-lock.json o el archivo fuente
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  # Trabajo de despliegue
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
