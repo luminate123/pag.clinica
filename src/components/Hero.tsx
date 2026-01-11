@@ -13,17 +13,17 @@ export default function Hero() {
       
       {/* Content */}
       <div className="container mx-auto px-6 text-center z-10 relative">
-        <span className="inline-block py-1 px-3 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
+        <span className="inline-block py-1 px-3 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm animate-fade-in-up">
             Clínica Estética Premium
         </span>
-        <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight drop-shadow-lg">
+        <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up delay-200">
           Medicina Estética <br />
           <span className="italic font-light text-[#D4AF37]">Facial y Corporal</span>
         </h1>
-        <p className="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+        <p className="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md animate-fade-in-up delay-400">
           Tecnología de vanguardia y especialistas certificados para resaltar tu belleza natural con total seguridad.
         </p>
-        <div className="flex flex-col md:flex-row justify-center gap-6">
+        <div className="flex flex-col md:flex-row justify-center gap-6 animate-fade-in-up delay-600">
           <a href="#contacto" className="px-10 py-4 bg-[#D4AF37] text-white text-sm font-bold uppercase tracking-widest hover:bg-[#b08d26] transition-all shadow-xl hover:shadow-[#D4AF37]/20">
             Reserva tu Cita
           </a>
